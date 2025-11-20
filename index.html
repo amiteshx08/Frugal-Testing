@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registration</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <form id="regForm" class="card" novalidate>
+      <h2 class="title">Create Account</h2>
+
+      <div class="row two">
+        <div class="field">
+          <label for="firstName">First name *</label>
+          <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+          <small class="error" data-for="firstName"></small>
+        </div>
+
+        <div class="field">
+          <label for="lastName">Last name *</label>
+          <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+          <small class="error" data-for="lastName"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <small class="error" data-for="email"></small>
+      </div>
+
+      <div class="row three">
+        <div class="field">
+          <label for="country">Country *</label>
+          <select id="country" name="country" required>
+            <!-- Only countries with 10-digit local numbers are included to match validation requirement -->
+            <option value="">Choose country</option>
+            <option value="IN" data-code="+91">India (+91)</option>
+            <option value="US" data-code="+1">United States (+1)</option>
+            <option value="CA" data-code="+1">Canada (+1)</option>
+          </select>
+          <small class="error" data-for="country"></small>
+        </div>
+
+        <div class="field">
+          <label for="city">City *</label>
+          <select id="city" name="city" required>
+            <option value="">Choose city</option>
+            <!-- We'll change cities dynamically based on country selection in script.js -->
+          </select>
+          <small class="error" data-for="city"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone (10 digits) *</label>
+          <div class="phoneWrap">
+            <input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="e.g. 9876543210" required />
+          </div>
+          <small class="error" data-for="phone"></small>
+        </div>
+      </div>
+
+      <div class="row two">
+        <div class="field">
+          <label for="age">Age *</label>
+          <input id="age" name="age" type="number" min="13" max="120" required />
+          <small class="error" data-for="age"></small>
+        </div>
+
+        <div class="field gender">
+          <label>Gender *</label>
+          <div class="genderOptions">
+            <label class="chk"><input type="checkbox" name="gender" value="male" /> Male</label>
+            <label class="chk"><input type="checkbox" name="gender" value="female" /> Female</label>
+            <label class="chk"><input type="checkbox" name="gender" value="other" /> Other</label>
+          </div>
+          <small class="error" data-for="gender"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="address">Address *</label>
+        <textarea id="address" name="address" rows="2" required></textarea>
+        <small class="error" data-for="address"></small>
+      </div>
+
+      <div class="row two">
+        <div class="field">
+          <label for="password">Password *</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" required />
+          <div id="pwdStrength" class="pwdMeter">
+            <div class="bar"></div>
+            <div class="label">Strength</div>
+          </div>
+          <small class="error" data-for="password"></small>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm password *</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required />
+          <small class="error" data-for="confirmPassword"></small>
+        </div>
+      </div>
+
+      <div class="field terms">
+        <label class="chk"><input id="terms" name="terms" type="checkbox" required /> I accept the terms & conditions *</label>
+        <small class="error" data-for="terms"></small>
+      </div>
+
+      <div class="actions">
+        <button id="submitBtn" type="submit" disabled>Register</button>
+      </div>
+
+      <div id="alert" class="alert hidden" role="alert">Registration Successful.</div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
